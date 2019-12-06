@@ -10,7 +10,12 @@ const cryingMessage = ['Do you want to talk?','Keep your head up','We can cry to
 function showResponse(messageArray){
   //Show Response
   var i = Math.floor(Math.random()*messageArray.length);
+  previousMessage = messageElement.innerHTML;
   messageElement.innerHTML = messageArray[i];
+  while(previousMessage==messageArray[i]){
+    i = Math.floor(Math.random()*messageArray.length);
+    messageElement.innerHTML = messageArray[i];
+  }
 }
 happyButton.addEventListener('click',function(){showResponse(happyMessage)});
 sillyButton.addEventListener('click',function(){showResponse(sillyMessage)});
